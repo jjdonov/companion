@@ -19,7 +19,9 @@
     "vanilla javascript",
     "modules"
   ],
-  "dependencies": { },
+  "dependencies": {
+    "walk": "^2.3.9"
+  },
   "devDependencies": {
     "grunt": "0.4.x",
     "grunt-contrib-jshint": "0.x.x",

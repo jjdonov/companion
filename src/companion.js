@@ -43,8 +43,8 @@ var companion = (function(module, undefined) {
   }
 
   function loadModule(moduleName, context, callback) {
-    let scripts = [];
-    let options = {
+    var scripts = [];
+    var options = {
       followLinks: false,
       filters: [
         'PlatformLocalization',
@@ -54,8 +54,8 @@ var companion = (function(module, undefined) {
       listeners: {
         file: (root, fileStats, next) => {
           if (fileStats.name.endsWith('.js')) {
-            let resolved = path.resolve(root, fileStats.name);
-            let s = fs.readFileSync(resolved);
+            var resolved = path.resolve(root, fileStats.name);
+            var s = fs.readFileSync(resolved);
             scripts.push(s);
           }
           next();
@@ -71,7 +71,7 @@ var companion = (function(module, undefined) {
     if (!scripts.length) {
       throw new Error('Did not find any scripts in ' + moduleName);
     }
-    let uniScript = scripts.join('\n');
+    var uniScript = scripts.join('\n');
     vm.runInNewContext(uniScript, context, moduleName);
     return context;
   }
